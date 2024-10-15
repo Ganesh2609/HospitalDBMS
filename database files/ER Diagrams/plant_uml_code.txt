@@ -1,0 +1,165 @@
+@startchen HospitalDatabase
+<style>
+.red {
+  BackGroundColor Red
+  FontColor White
+}
+.blue {
+  BackGroundColor Blue
+  FontColor White
+}
+</style>
+
+entity "Patient" as PATIENT {
+    patient_id <<key>>
+    first_name
+    last_name
+    date_of_birth
+    gender
+    address
+    phone_number
+    email
+    blood_type
+    emergency_contact
+    allergies
+    existing_conditions
+}
+
+entity "Login" as LOGIN {
+    patient_id <<key>>
+    password
+}
+
+entity "Doctor" as DOCTOR {
+    doctor_id <<key>>
+    first_name
+    last_name
+    specialization
+    phone_number
+    email
+    available_days
+    available_from
+    available_to
+    years_of_experience
+    salary
+}
+
+entity "Ward" as WARD {
+    ward_id <<key>>
+    ward_type
+    total_beds
+    available_beds
+    floor_number
+}
+
+entity "Nurse" as NURSE {
+    nurse_id <<key>>
+    first_name
+    last_name
+    shift
+    phone_number
+    email
+    ward_id
+}
+
+entity "Appointment" as APPOINTMENT {
+    appointment_id <<key>>
+    patient_id
+    doctor_id
+    appointment_date
+    appointment_time
+    appointment_reason
+    status
+}
+
+entity "Prescription" as PRESCRIPTION {
+    prescription_id <<key>>
+    appointment_id
+    medication_name
+    dosage
+    frequency
+    duration
+}
+
+entity "Treatment" as TREATMENT {
+    treatment_id <<key>>
+    appointment_id
+    treatment_name
+    start_date
+    end_date
+}
+
+entity "MedicalTest" as MEDICAL_TEST {
+    test_id <<key>>
+    appointment_id
+    test_type
+    test_date
+}
+
+entity "Bill" as BILL {
+    bill_id <<key>>
+    appointment_id
+    total_amount
+    billing_date
+    payment_status
+}
+
+entity "Staff" as STAFF {
+    staff_id <<key>>
+    first_name
+    last_name
+    job_role
+    phone_number
+    email
+    salary
+}
+
+entity "Equipment" as EQUIPMENT {
+    equipment_id <<key>>
+    equipment_name
+    status
+    purchase_date
+    warranty_till
+    last_maintenance
+}
+
+entity "DoctorLogin" as DOCTOR_LOGIN {
+    doctor_id <<key>>
+    password
+}
+
+relationship "has" as PATIENT_LOGIN {
+}
+
+relationship "has" as DOCTOR_APPOINTMENT {
+}
+
+relationship "has" as NURSE_WARD {
+}
+
+relationship "has" as APPOINTMENT_PRESCRIPTION {
+}
+
+relationship "has" as APPOINTMENT_TREATMENT {
+}
+
+relationship "has" as APPOINTMENT_MEDICAL_TEST {
+}
+
+relationship "has" as APPOINTMENT_BILL {
+}
+
+relationship "has" as DOCTOR_DOCTOR_LOGIN {
+}
+
+PATIENT -1- LOGIN
+PATIENT -(1,N)- APPOINTMENT
+DOCTOR -(1,N)- APPOINTMENT
+WARD -(1,N)- NURSE
+APPOINTMENT -(1,N)- PRESCRIPTION
+APPOINTMENT -(1,N)- TREATMENT
+APPOINTMENT -(1,N)- MEDICAL_TEST
+APPOINTMENT -1- BILL
+DOCTOR -1- DOCTOR_LOGIN
+
+@endchen
