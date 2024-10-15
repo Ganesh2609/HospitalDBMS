@@ -1,4 +1,4 @@
-# Hospital Management System
+# Hospital Database Management System
 
 This project is a comprehensive full-stack Hospital Management System that efficiently manages patient records, appointments, doctors, nurses, prescriptions, treatments, billing, and more. It features a well-structured database schema, a React.js-based frontend, and an Express.js backend to ensure seamless user interaction and data handling.
 
