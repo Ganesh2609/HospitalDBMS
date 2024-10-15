@@ -11,13 +11,13 @@ This project is a comprehensive full-stack Hospital Management System that effic
 
 ## ER Diagrams
 
-### Patient and Appointment Management ER Diagram
+### ER Diagram 1
 ![ER1](database_files/ER_Diagrams/er_diagram.png)
 
-### Doctor and Nurse Management ER Diagram
+### ER Diagram 2
 ![ER2](database_files/ER_Diagrams/er_diagram_2.png)
 
-### Billing and Medical Records Management ER Diagram
+### ER Diagram 3
 ![ER3](database_files/ER_Diagrams/er_diagram_3.png)
 
 ## Project Structure
